@@ -54,6 +54,31 @@ if (!reduce) {
   gsap.ticker.lagSmoothing(0);
 }
 
+/* ═══════════ DAR EKRAN MENÜSÜ ═══════════ */
+const burger = $('#burger');
+const mobmenu = $('#mobmenu');
+
+function menuKapat() {
+  if (!mobmenu?.classList.contains('acik')) return;
+  mobmenu.classList.remove('acik');
+  mobmenu.setAttribute('aria-hidden', 'true');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Menüyü aç');
+  $('#nav').classList.remove('menu-acik');
+  lenis?.start();
+}
+
+burger?.addEventListener('click', () => {
+  const acik = mobmenu.classList.toggle('acik');
+  mobmenu.setAttribute('aria-hidden', String(!acik));
+  burger.setAttribute('aria-expanded', String(acik));
+  burger.setAttribute('aria-label', acik ? 'Menüyü kapat' : 'Menüyü aç');
+  $('#nav').classList.toggle('menu-acik', acik);
+  acik ? lenis?.stop() : lenis?.start();
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') menuKapat(); });
+
 /* menü linkleri */
 $$('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -61,6 +86,7 @@ $$('a[href^="#"]').forEach(a => {
     const target = id === '#top' ? 0 : $(id);
     if (!target && target !== 0) return;
     e.preventDefault();
+    menuKapat();   // önce paneli kapat, sonra kaydır
     if (lenis) lenis.scrollTo(target, { offset: 0, duration: 1.4 });
     else window.scrollTo({ top: target === 0 ? 0 : target.offsetTop, behavior: 'smooth' });
   });
@@ -209,20 +235,26 @@ function setupScrub() {
       if (dur && v.readyState >= 2) v.currentTime = Math.min(dur - 0.05, p * dur);
       fill.style.width = (p * 100).toFixed(1) + '%';
 
-      // 4 adım, her biri %25'lik dilim
+      // 4 adım, her biri %25'lik dilim.
+      // Adımlar ÇAPRAZ geçiyor: biri sönerken diğeri açılıyor. Eski formülde
+      // dilim sınırlarında ikisi de 0'a düşüp ekran bomboş kalıyordu.
       const seg = 1 / steps.length;
+      const son = steps.length - 1;
       steps.forEach((el, i) => {
-        const local = (p - i * seg) / seg;           // 0..1 aralığı
-        let o = 0, y = 40, b = 6;
-        if (local > -0.35 && local < 1.35) {
-          const eased = Math.max(0, 1 - Math.abs(local - 0.5) * 2.4);
-          o = eased;
-          y = (0.5 - local) * 70;
-          b = (1 - eased) * 8;
-        }
-        el.style.opacity = o;
-        el.style.transform = `translate(0, calc(-50% + ${y}px))`;
-        el.style.filter = `blur(${b}px)`;
+        let t = (p - i * seg) / seg;                 // dilim içi konum
+        if (i === 0)   t = Math.max(t, 0.05);        // ilk adım baştan açık dursun
+        if (i === son) t = Math.min(t, 0.85);        // son adım sonda kaybolmasın
+
+        let o;
+        if (t < -0.15)      o = 0;
+        else if (t < 0.05)  o = (t + 0.15) / 0.20;   // açılış
+        else if (t < 0.85)  o = 1;                   // tam görünür
+        else if (t < 1.05)  o = 1 - (t - 0.85) / 0.20; // sönüş
+        else                o = 0;
+
+        el.style.opacity = o.toFixed(3);
+        el.style.transform = `translate(0, calc(-50% + ${((0.45 - t) * 60).toFixed(1)}px))`;
+        el.style.filter = `blur(${((1 - o) * 7).toFixed(2)}px)`;
       });
     }
   });
@@ -242,11 +274,20 @@ function setupRing() {
 
   let small = mq.matches;
 
+  const ORAN = 1.36;
+
   function layout() {
     small = mq.matches;
-    const cw = small ? Math.min(226, window.innerWidth * 0.58) : Math.min(300, window.innerWidth * 0.21);
-    // kart, başlık ve alt notla çakışmasın diye yüksekliği görünür alana da bağlı
-    const ch = Math.min(cw * (small ? 1.52 : 1.32), window.innerHeight * (small ? 0.6 : 0.56));
+    const vw = window.innerWidth, vh = window.innerHeight;
+
+    // Önce yükseklikten git: başlık + alt not için yer ayır, kalanı karta ver.
+    // (Eskiden kart genişliği doğrudan vw'den türetiliyordu; tablette kartlar
+    //  minicik kalıyor, yatay telefonda başlığın üstüne biniyordu.)
+    const kullanilabilir = vh - (small ? 150 : 170);
+    let ch = Math.min(kullanilabilir, small ? 340 : 400);
+    let cw = Math.min(ch / ORAN, vw * (small ? 0.60 : 0.34), 310);
+    ch = cw * ORAN;
+
     // dar ekranda yarıçap küçük tutuluyor: öndeki kart ekranı doldursun,
     // iki kart arasındayken ortada boşluk kalmasın
     const radius = (cw / 2) / Math.tan(Math.PI / n) * (small ? 0.95 : 1.28);

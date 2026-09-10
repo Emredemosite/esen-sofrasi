@@ -34,7 +34,22 @@
     <a href="#iletisim">İletişim</a>
   </nav>
   <a href="tel:+903122772010" class="nav__cta"><span class="dot"></span>0312 277 20 10</a>
+  <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobmenu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- dar ekranlarda navigasyon: üstteki .nav__links gizleniyor -->
+<div class="mobmenu" id="mobmenu" aria-hidden="true">
+  <nav>
+    <a href="#hikaye">Hikâye</a>
+    <a href="#menu">Menü</a>
+    <a href="#mekan">Mekân</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <a href="tel:+903122772010" class="mobmenu__tel">0312 277 20 10</a>
+  <p class="mobmenu__adres">818. Sk. No: 1A/B, Yenikent<br>Sincan / Ankara</p>
+</div>
 
 <main id="top">
 

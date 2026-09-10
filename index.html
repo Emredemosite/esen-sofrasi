@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Esen Sofrası — Yenikent Ocakbaşı</title>
+<meta name="description" content="Esen Sofrası — Yenikent, Sincan. Meşe kömüründe kuzu şiş, taş fırında pide, 4,6 puanla bölgenin sofrası.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="preload" id="preload">
+  <video class="preload__vid" src="assets/video/ates.mp4" poster="assets/img/poster-ates.jpg" muted playsinline autoplay loop></video>
+  <div class="preload__veil"></div>
+  <div class="preload__inner">
+    <div class="mark"><span>E</span><span>S</span></div>
+    <p class="preload__label">ateş yanıyor</p>
+    <div class="preload__bar"><span id="preloadFill"></span></div>
+    <p class="preload__pct"><span id="preloadPct">0</span>%</p>
+  </div>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo">Esen<span>Sofrası</span></a>
+  <nav class="nav__links">
+    <a href="#hikaye">Hikâye</a>
+    <a href="#menu">Menü</a>
+    <a href="#mekan">Mekân</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <a href="tel:+903122772010" class="nav__cta"><span class="dot"></span>0312 277 20 10</a>
+</header>
+
+<main id="top">
+
+<!-- ══════════ 1 · HERO ══════════ -->
+<section class="hero" id="hero">
+  <div class="hero__media" id="heroMedia">
+    <video src="assets/video/sis-kebap.mp4" poster="assets/img/poster-sis-kebap.jpg" muted playsinline autoplay loop preload="auto"></video>
+    <div class="hero__grade"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="eyebrow" data-fade>Yenikent · Sincan · Ankara</p>
+    <h1 class="hero__title">
+      <span class="line" data-split>Esen</span>
+      <span class="line-mask"><span class="line line--serif" id="heroSerif">Sofrası</span></span>
+    </h1>
+    <p class="hero__sub" data-fade>Ateş burada bir pişirme yöntemi değil,<br>bir sofra kurma biçimi.</p>
+  </div>
+
+  <div class="hero__meta">
+    <div class="rating">
+      <span class="rating__num">4,6</span>
+      <span class="rating__stars">★★★★★</span>
+      <span class="rating__cap">217 Google değerlendirmesi</span>
+    </div>
+    <div class="scrollcue"><span></span>kaydır</div>
+  </div>
+</section>
+
+<!-- ══════════ 2 · MANİFESTO ══════════ -->
+<section class="manifesto" id="hikaye">
+  <div class="manifesto__inner">
+    <p class="eyebrow center" data-fade>Hikâye</p>
+    <h2 class="reveal-text" data-reveal>Kömür yandıktan sonra susar. Asıl iş o sessizlikte olur — etin kendi yağıyla, kendi zamanında pişmesinde. Biz sadece bekliyoruz.</h2>
+  </div>
+  <div class="manifesto__glow"></div>
+</section>
+
+<!-- ══════════ 3 · SCROLL İLE OYNAYAN ATEŞ ══════════ -->
+<section class="scrub" id="scrub">
+  <div class="scrub__stage">
+    <video id="scrubVideo" class="scrub__video" src="assets/video/sis-scrub.mp4" poster="assets/img/poster-sis-kebap.jpg" muted playsinline preload="auto"></video>
+    <div class="scrub__vignette"></div>
+
+    <div class="scrub__steps">
+      <div class="step" data-step="0"><span class="step__no">01</span><h3>Kuzu</h3><p>Günlük kesim. Sabah gelir, akşam ateşe girer.</p></div>
+      <div class="step" data-step="1"><span class="step__no">02</span><h3>Tuz</h3><p>Terbiye yok, sos yok. Kaya tuzu ve bir gece.</p></div>
+      <div class="step" data-step="2"><span class="step__no">03</span><h3>Ateş</h3><p>Meşe kömürü. Alev değil kor — kırk santim mesafe.</p></div>
+      <div class="step" data-step="3"><span class="step__no">04</span><h3>Sabır</h3><p>On dört dakika. Ne bir eksik, ne bir fazla.</p></div>
+    </div>
+
+    <div class="scrub__progress"><span id="scrubFill"></span></div>
+    <p class="scrub__hint">kaydırarak ateşi çevir</p>
+  </div>
+</section>
+
+<!-- ══════════ 4 · 3D MENÜ KARUSELİ ══════════ -->
+<section class="menu" id="menu">
+  <div class="menu__stage">
+    <div class="menu__head">
+      <p class="eyebrow">Menü</p>
+      <h2 class="menu__title">Sofra</h2>
+    </div>
+
+    <div class="ring-wrap">
+      <div class="ring" id="ring">
+        <article class="card">
+          <div class="card__img"><img src="assets/img/kuzu-sis.jpg" alt="Kuzu Şiş"></div>
+          <div class="card__body"><h3>Kuzu Şiş</h3><p>Meşe kömüründe, kuyruk yağıyla dengelenmiş kuzu kuşbaşı.</p><span class="card__price">480 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/adana.jpg" alt="Adana Kebap"></div>
+          <div class="card__body"><h3>Adana Kebap</h3><p>Zırhta çekilmiş, acısı ayarlanabilir. Yanında közlenmiş biber.</p><span class="card__price">390 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/antrikot.jpg" alt="Antrikot"></div>
+          <div class="card__body"><h3>Antrikot</h3><p>21 gün dinlendirilmiş dana antrikot. Sadece tuz, sadece ateş.</p><span class="card__price">620 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/kaburga.jpg" alt="Kuzu Kaburga"></div>
+          <div class="card__body"><h3>Kuzu Kaburga</h3><p>Dört saat düşük ısıda, sonra korda mühürlenir.</p><span class="card__price">560 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/pide.jpg" alt="Fırın Pide"></div>
+          <div class="card__body"><h3>Taş Fırın Pide</h3><p>Elde açılmış hamur, taş fırında iki dakika.</p><span class="card__price">220 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/pilav.jpg" alt="Kuru Fasulye ve Pilav"></div>
+          <div class="card__body"><h3>Fasulye &amp; Pilav</h3><p>İspir fasulyesi, tereyağlı pirinç pilavı, turşu.</p><span class="card__price">260 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/salata.jpg" alt="Mevsim Salata"></div>
+          <div class="card__body"><h3>Mevsim Salata</h3><p>Günlük yeşillik, nar ekşisi, taze nane.</p><span class="card__price">140 ₺</span></div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/img/tatli.jpg" alt="Bal ve Kaymak"></div>
+          <div class="card__body"><h3>Bal &amp; Kaymak</h3><p>Petek bal, Afyon kaymağı, iri kırılmış ceviz.</p><span class="card__price">180 ₺</span></div>
+        </article>
+      </div>
+    </div>
+
+    <p class="menu__foot">Fiyatlar örnektir · Tüm menü için <a href="tel:+903122772010">0312 277 20 10</a></p>
+  </div>
+</section>
+
+<!-- ══════════ 5 · RAKAMLAR ══════════ -->
+<section class="stats">
+  <div class="stat" data-fade><b data-count="27">0</b><i>yıl</i><span>Yenikent'te aynı ocağın başında</span></div>
+  <div class="stat" data-fade><b data-count="4.6" data-dec="1">0</b><i>puan</i><span>217 Google değerlendirmesi</span></div>
+  <div class="stat" data-fade><b data-count="180">0</b><i>kişi</i><span>Salon ve bahçe kapasitesi</span></div>
+  <div class="stat" data-fade><b data-count="14">0</b><i>dakika</i><span>Bir şişin ateşte geçirdiği süre</span></div>
+</section>
+
+<!-- ══════════ 6 · YATAY GALERİ ══════════ -->
+<section class="gallery" id="galeri">
+  <div class="gallery__stage">
+    <div class="gallery__track" id="galTrack">
+      <div class="gallery__intro">
+        <p class="eyebrow">Galeri</p>
+        <h2>Ocağın<br>başında</h2>
+        <p class="gallery__lead">Her akşam aynı ritüel: kor tutar, şiş döner, sofra kurulur.</p>
+      </div>
+      <figure class="slide"><video src="assets/video/izgara.mp4" poster="assets/img/poster-izgara.jpg" muted loop playsinline autoplay></video><figcaption>Kor tutuyor</figcaption></figure>
+      <figure class="slide slide--tall"><img src="assets/img/kuzu-sis.jpg" alt="Şişler"><figcaption>Kuzu şiş</figcaption></figure>
+      <figure class="slide"><video src="assets/video/usta.mp4" poster="assets/img/poster-usta.jpg" muted loop playsinline autoplay></video><figcaption>Ocakbaşı ustası</figcaption></figure>
+      <figure class="slide slide--tall"><img src="assets/img/kaburga.jpg" alt="Kaburga"><figcaption>Dinlendirilmiş et</figcaption></figure>
+      <figure class="slide"><video src="assets/video/cay.mp4" poster="assets/img/poster-cay.jpg" muted loop playsinline autoplay></video><figcaption>Ardından çay</figcaption></figure>
+      <figure class="slide slide--tall"><img src="assets/img/pide.jpg" alt="Pide hamuru"><figcaption>Taş fırın</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 7 · MEKÂN ══════════ -->
+<section class="venue" id="mekan">
+  <div class="venue__media" data-parallax="0.12">
+    <video src="assets/video/mekan.mp4" poster="assets/img/poster-mekan.jpg" muted loop playsinline autoplay></video>
+  </div>
+  <div class="venue__text">
+    <p class="eyebrow" data-fade>Mekân</p>
+    <h2 data-fade>İki salon,<br>bir de bahçe.</h2>
+    <p data-fade>Necip Fazıl Bulvarının hemen arkasında, 818. Sokakta. İçeride 120 kişilik salon, yazın açılan bahçede 60 kişilik ek alan. Nişan, mevlit ve kurumsal yemekler için salon tamamen kapatılabiliyor.</p>
+    <ul class="venue__list">
+      <li data-fade><span>01</span>Ücretsiz otopark</li>
+      <li data-fade><span>02</span>Ayrı aile salonu</li>
+      <li data-fade><span>03</span>Nişan &amp; mevlit organizasyonu</li>
+      <li data-fade><span>04</span>Paket servis</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ 8 · İLETİŞİM ══════════ -->
+<section class="contact" id="iletisim">
+  <div class="contact__grid">
+    <div class="contact__col">
+      <p class="eyebrow" data-fade>Rezervasyon</p>
+      <h2 class="contact__title" data-fade>Sofra<br><em>hazır.</em></h2>
+      <a href="tel:+903122772010" class="bigphone" data-fade>0312 277 20 10</a>
+      <p class="contact__note" data-fade>Hafta sonu akşamları için rezervasyon öneririz.</p>
+    </div>
+
+    <div class="contact__col contact__col--info">
+      <dl>
+        <div data-fade><dt>Adres</dt><dd>29 Ekim Mah. Necip Fazıl Bulvarı<br>818. Sk. No: 1A/B, Yenikent<br>06010 Sincan / Ankara</dd></div>
+        <div data-fade><dt>Saatler</dt><dd>Her gün 11:00 – 23:30</dd></div>
+        <div data-fade><dt>Instagram</dt><dd><a href="https://www.instagram.com/esensofrasi/" target="_blank" rel="noopener">@esensofrasi</a></dd></div>
+        <div data-fade><dt>Kişi başı</dt><dd>400 – 600 ₺</dd></div>
+      </dl>
+      <a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Esen+Sofras%C4%B1+Yenikent+Sincan+Ankara">Yol tarifi al →</a>
+    </div>
+  </div>
+
+  <div class="map" data-fade>
+    <iframe title="Esen Sofrası konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=29%20Ekim%20Mahallesi%20Necip%20Faz%C4%B1l%20Bulvar%C4%B1%20818.%20Sk.%20No:1a%20Yenikent%20Sincan%20Ankara&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__mark">Esen Sofrası</div>
+  <p>Yenikent, Sincan / Ankara · 0312 277 20 10</p>
+  <p class="foot__fine">Demo tasarım · <span id="year"></span></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

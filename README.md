@@ -53,10 +53,20 @@ Hiçbiri Esen Sofrası'nın gerçek yemeği değil — anlaşma olursa mekânda 
 Menü fotoğrafları videolardan `ffmpeg` ile kare çıkarılarak üretildi, kaynakları
 `assets/video/` altında duruyor.
 
+## Mobil
+
+6 ekran boyutunda test edildi (375x667, 360x800, 390x844, 430x932, 768x1024,
+844x390 yatay): yatay tasma yok, konsol hatasi yok, scroll videosu her boyutta
+calisiyor.
+
+- 760px altinda ustteki linkler gizlenir, yerine hamburger + tam ekran panel gelir.
+- 560px yuksekligin altinda (yatay telefon) menu basligi gizlenir, yazi olculeri kuculur.
+- Kart olculeri once ekran yuksekliginden turetilir; govde icerik kadar yer kaplar.
+
 ## Bilinen sınırlar
 
-- Toplam ~46 MB video. Mobilde ağır; yayına çıkarsa videolar WebM'e çevrilmeli ve
-  mobil için düşük çözünürlüklü varyant eklenmeli.
+- Toplam ~19 MB video (50 MB olarak baslamisti, ffmpeg crf 30 ile kucultuldu).
+  Ilk tam yukleme mobilde ~13 sn; daha da dusurmek gerekirse WebM varyanti eklenebilir.
 - `sis-scrub.mp4` all-intra kodlanmış (her kare keyframe) — scroll'da anında
   seek edilebilsin diye. Bu yüzden 8 saniye için 4 MB.
 - Sayfa toplam ~15.700 px scroll. Uzun bir deneyim; sabırsız kullanıcı için

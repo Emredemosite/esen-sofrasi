@@ -205,7 +205,8 @@ function setupScrub() {
     scrub: true,
     onUpdate: self => {
       const p = self.progress;
-      if (dur) v.currentTime = Math.min(dur - 0.05, p * dur);
+      // readyState kontrolü: ağ yavaşken seek isteği sessizce düşüyordu
+      if (dur && v.readyState >= 2) v.currentTime = Math.min(dur - 0.05, p * dur);
       fill.style.width = (p * 100).toFixed(1) + '%';
 
       // 4 adım, her biri %25'lik dilim
@@ -226,12 +227,8 @@ function setupScrub() {
     }
   });
 
-  // video görünürken kaynağı zorla yükle
-  ScrollTrigger.create({
-    trigger: '.scrub', start: 'top bottom', end: 'bottom top',
-    onEnter: () => v.load()
-  });
-
+  // Not: burada eskiden v.load() vardı — bölüme atlayınca seek'i sıfırlayıp
+  // videoyu 0'da bırakıyordu. preload="auto" zaten yüklemeyi hallediyor.
   return st;
 }
 
